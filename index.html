@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Donut Earth</title>
+    <script type="module" crossorigin src="./assets/index-BObWezoB.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BzibhdsV.css">
+  </head>
+  <body>
+    <div id="stage">
+      <canvas id="scene"></canvas>
+    </div>
+
+    <aside id="panel">
+      <div class="switch" role="radiogroup" aria-label="World">
+        <label><input id="world-round" type="radio" name="world" value="round" checked /><span>Round donut</span></label>
+        <label><input id="world-living" type="radio" name="world" value="living" /><span>Living donut</span></label>
+        <label><input id="world-croissant" type="radio" name="world" value="croissant" /><span>Croissant</span></label>
+      </div>
+
+      <header>
+        <h1>Donut Earth</h1>
+        <button id="play" type="button">Pause</button>
+      </header>
+
+      <label class="slider">
+        <span>Day speed</span>
+        <output id="day-speed-value"></output>
+        <input id="day-speed" type="range" min="1" max="60" step="1" />
+      </label>
+
+      <div id="living-controls" class="living-only" hidden>
+        <label class="slider">
+          <span>Year length</span>
+          <output id="year-length-value"></output>
+          <input id="year-length" type="range" min="20" max="600" step="10" />
+        </label>
+        <label class="slider">
+          <span>Date</span>
+          <output id="date-value"></output>
+          <input id="date" type="range" min="0" max="1000" step="1" />
+        </label>
+        <label class="slider">
+          <span>Sway</span>
+          <output id="sway-value"></output>
+          <input id="sway" type="range" min="0" max="0.45" step="0.01" />
+        </label>
+        <label class="slider">
+          <span>Tip length</span>
+          <output id="tip-value"></output>
+          <input id="tip" type="range" min="0" max="100" step="1" />
+        </label>
+        <label class="check"><input id="fold" type="checkbox" /> Polar blades</label>
+      </div>
+
+      <div id="croissant-controls" class="croissant-only" hidden>
+        <label class="slider">
+          <span>Year length</span>
+          <output id="c-year-length-value"></output>
+          <input id="c-year-length" type="range" min="20" max="600" step="10" />
+        </label>
+        <label class="slider">
+          <span>Date</span>
+          <output id="c-date-value"></output>
+          <input id="c-date" type="range" min="0" max="1000" step="1" />
+        </label>
+        <label class="slider">
+          <span>Cap tilt</span>
+          <output id="c-tilt-value"></output>
+          <input id="c-tilt" type="range" min="0" max="100" step="1" />
+        </label>
+        <label class="slider">
+          <span>Teardrop strength</span>
+          <output id="c-strength-value"></output>
+          <input id="c-strength" type="range" min="0" max="100" step="1" />
+        </label>
+        <label class="slider">
+          <span>Sway</span>
+          <output id="c-sway-value"></output>
+          <input id="c-sway" type="range" min="0" max="100" step="1" />
+        </label>
+      </div>
+
+      <label class="check living-only croissant-only" hidden><input id="seasonal" type="checkbox" /> Seasonal map <small>(NASA Blue Marble)</small></label>
+      <label class="check"><input id="grid" type="checkbox" /> Lat/long grid</label>
+      <label class="check"><input id="surface" type="checkbox" /> Surface camera</label>
+      <label class="check"><input id="atmosphere" type="checkbox" /> Atmosphere <small>(surface camera)</small></label>
+      <label id="haze-row" class="slider" hidden>
+        <span>Haze distance</span>
+        <output id="haze-value"></output>
+        <input id="haze" type="range" min="0.2" max="3" step="0.05" value="0.75" />
+      </label>
+
+      <label class="field">
+        <span>City</span>
+        <select id="city"></select>
+      </label>
+
+      <dl id="readout">
+        <div><dt>Solar time</dt><dd id="solar-time">--:--</dd></div>
+        <div><dt>Sky</dt><dd id="sky">-</dd></div>
+        <div class="living-only croissant-only" hidden><dt>Day length</dt><dd id="day-length">-</dd></div>
+        <div class="living-only croissant-only" hidden><dt>Season</dt><dd id="season">-</dd></div>
+      </dl>
+      <div id="croissant-table" class="croissant-only" hidden>
+        <div class="table-title">Hours of daylight today</div>
+        <table>
+          <thead><tr><th>Latitude</th><th>North</th><th>South</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p id="hint" hidden>Drag to look around.</p>
+    </aside>
+
+  </body>
+</html>
